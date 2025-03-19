@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+
+<h:head>
+    <title>Employee List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</h:head>
+
+<h:body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Employee List</h2>
+        <a href="index.xhtml" class="btn btn-secondary mb-3">Back to Home</a>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Skills</th>
+                <th>Projects</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <h:dataTable value="#{employeeController.allEmployees}" var="employee" class="table">
+                <h:column><h:outputText value="#{employee.id}"/></h:column>
+                <h:column><h:outputText value="#{employee.name}"/></h:column>
+                <h:column><h:outputText value="#{employee.email}"/></h:column>
+                <h:column>
+                    <ul>
+                        <ui:repeat value="#{employee.skills}" var="skill">
+                            <li><h:outputText value="#{skill}"/></li>
+                        </ui:repeat>
+                    </ul>
+                </h:column>
+                <h:column>
+                    <ul>
+                        <ui:repeat value="#{employee.projects}" var="proj">
+                            <li><h:outputText value="#{proj.name} (#{proj.budget})"/></li>
+                        </ui:repeat>
+                    </ul>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Remove" action="#{employeeController.delete(employee.id)}" class="btn btn-danger"/>
+                </h:column>
+            </h:dataTable>
+            </tbody>
+        </table>
+    </div>
+</h:body>
+</html>

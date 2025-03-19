@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head>
+    <title>Affectation Employé-Projet</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</h:head>
+
+<h:body class="container mt-5">
+    <h1 class="mb-4">Affectation Employé-Projet</h1>
+
+    <h:form>
+        <div class="mb-3">
+            <label for="employee" class="form-label">Sélectionner un Employé :</label>
+            <h:selectOneMenu id="employee" value="#{employeeController.selectedEmployee}" class="form-control">
+                <f:selectItems value="#{employeeController.allEmployees}" var="e" itemValue="#{e.id}" itemLabel="#{e.name}"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div class="mb-3">
+            <label for="project" class="form-label">Sélectionner un Projet :</label>
+            <h:selectOneMenu id="project" value="#{projectController.selectedProject}" class="form-control">
+                <f:selectItems value="#{projectController.allProjects}" var="p" itemValue="#{p.id}" itemLabel="#{p.name}"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div class="mb-3">
+            <label for="implication" class="form-label">Niveau d'implication :</label>
+            <h:inputText id="implication" value="#{employeeController.implication}" class="form-control"/>
+        </div>
+
+        <h:commandButton value="Affecter Projet" action="#{employeeController.affecterProjet}" class="btn btn-primary"/>
+    </h:form>
+
+    <a href="index.xhtml" class="btn btn-secondary mt-3">Retour</a>
+</h:body>
+</html>
