@@ -1,5 +1,5 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
-             version="3.1"> <!-- ✅ Mise à jour vers la dernière version -->
+             version="3.0">
     <persistence-unit name="EmployeePU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
@@ -20,7 +20,7 @@
             <property name="eclipselink.logging.parameters" value="true"/>
 
             <!-- Gestion du schéma -->
-            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

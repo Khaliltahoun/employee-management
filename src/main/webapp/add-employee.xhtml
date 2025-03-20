@@ -13,40 +13,42 @@
     <h:form>
         <div class="mb-3">
             <label for="name" class="form-label">Employee Name:</label>
-            <h:inputText id="name" value="#{employeeController.newEmployee.name}" class="form-control" required="true"/>
+            <h:inputText id="name" value="#{employeeController.newEmployee.name}"
+                         class="form-control" required="true"/>
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
-            <h:inputText id="email" value="#{employeeController.newEmployee.email}" class="form-control" required="true"/>
+            <h:inputText id="email" value="#{employeeController.newEmployee.email}"
+                         class="form-control" required="true"/>
         </div>
 
         <div class="mb-3">
             <label for="post" class="form-label">Job Title:</label>
-            <h:selectOneMenu id="post" value="#{employeeController.newEmployee.post}" class="form-control">
-                <f:selectItems value="#{employeeController.postValues}" />
+            <h:selectOneMenu id="post" value="#{employeeController.newEmployee.post}"
+                             class="form-control">
+                <f:selectItems value="#{employeeController.postValues}"/>
             </h:selectOneMenu>
         </div>
 
-
         <div class="mb-3">
             <label for="skills" class="form-label">Skills (comma separated):</label>
-            <h:inputText id="skills" value="#{employeeController.newEmployee.skills}" class="form-control">
+            <h:inputText id="skills" value="#{employeeController.newEmployee.skills}"
+                         class="form-control">
                 <f:converter converterId="skillsConverter"/>
             </h:inputText>
         </div>
 
-
-        <div class="mb-3">
-            <label for="project" class="form-label">Assign to Project:</label>
-            <h:selectOneMenu id="project" value="#{employeeController.newEmployee.project.id}" class="form-control">
-                <f:selectItems value="#{projectController.allProjects}" var="p" itemValue="#{p.id}" itemLabel="#{p.name}"/>
-            </h:selectOneMenu>
-        </div>
+        <!-- Remove "Assign to Project" section to keep project as null -->
 
         <div class="d-flex gap-3">
-            <h:commandButton value="Add Employee" action="#{employeeController.addEmployee}" class="btn btn-primary"/>
-            <h:commandButton value="Cancel" action="index.xhtml" immediate="true" class="btn btn-secondary"/>
+            <h:commandButton value="Add Employee"
+                             action="#{employeeController.addEmployee}"
+                             class="btn btn-primary"/>
+            <h:commandButton value="Cancel"
+                             action="index.xhtml"
+                             immediate="true"
+                             class="btn btn-secondary"/>
         </div>
     </h:form>
 </h:body>

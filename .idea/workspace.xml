@@ -10,39 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0c2333d-302f-43d8-bc60-a131cdf5fbf2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/converter/SkillsConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/ProjectDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/employeemanagement/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/service/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/service/ProjectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/add-employee.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/add-project.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/employee-affectation.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/employee-list.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/home.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/project-list.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/converter/EmployeeConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/converter/ProjectConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/ProjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/ProjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/add-employee.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/add-employee.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/employee-affectation.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/employee-affectation.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/employee-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/employee-list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/project-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/project-list.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +88,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora"
+    ]
   }
 }]]></component>
   <component name="RunManager">
@@ -186,7 +173,8 @@
       <workItem from="1742320559518" duration="359000" />
       <workItem from="1742321370112" duration="505000" />
       <workItem from="1742321940994" duration="297000" />
-      <workItem from="1742322353747" duration="7077000" />
+      <workItem from="1742322353747" duration="10963000" />
+      <workItem from="1742435384920" duration="6375000" />
     </task>
     <servers />
   </component>

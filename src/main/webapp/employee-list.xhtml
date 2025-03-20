@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
->
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
     <title>Employee List</title>
@@ -27,28 +25,37 @@
             </tr>
             </thead>
             <tbody>
-            <h:dataTable value="#{employeeController.allEmployees}" var="employee" class="table">
-                <h:column><h:outputText value="#{employee.id}"/></h:column>
-                <h:column><h:outputText value="#{employee.name}"/></h:column>
-                <h:column><h:outputText value="#{employee.email}"/></h:column>
-                <h:column>
-                    <ul>
-                        <ui:repeat value="#{employee.skills}" var="skill">
-                            <li><h:outputText value="#{skill}"/></li>
-                        </ui:repeat>
-                    </ul>
-                </h:column>
-                <h:column>
-                    <ul>
-                        <ui:repeat value="#{employee.projects}" var="proj">
-                            <li><h:outputText value="#{proj.name} (#{proj.budget})"/></li>
-                        </ui:repeat>
-                    </ul>
-                </h:column>
-                <h:column>
-                    <h:commandButton value="Remove" action="#{employeeController.delete(employee.id)}" class="btn btn-danger"/>
-                </h:column>
-            </h:dataTable>
+            <ui:repeat value="#{employeeController.allEmployees}" var="employee">
+                <tr>
+                    <td><h:outputText value="#{employee.id}" /></td>
+                    <td><h:outputText value="#{employee.name}" /></td>
+                    <td><h:outputText value="#{employee.email}" /></td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <ui:repeat value="#{employee.skills}" var="skill">
+                                <li><h:outputText value="#{skill}" /></li>
+                            </ui:repeat>
+                        </ul>
+                    </td>
+                    <td>
+                        <!-- Itération sur la liste des projets -->
+                        <ul class="list-unstyled">
+                            <ui:repeat value="#{employee.projects}" var="proj">
+                                <li>
+                                    <h:outputText value="#{proj.name} (#{proj.budget})" />
+                                </li>
+                            </ui:repeat>
+                        </ul>
+                    </td>
+                    <td>
+                        <h:form>
+                            <h:commandButton value="Remove"
+                                             action="#{employeeController.delete(employee.id)}"
+                                             class="btn btn-danger"/>
+                        </h:form>
+                    </td>
+                </tr>
+            </ui:repeat>
             </tbody>
         </table>
     </div>

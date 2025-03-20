@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
->
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
     <title>Project List</title>
@@ -25,21 +24,25 @@
             </tr>
             </thead>
             <tbody>
-            <h:dataTable value="#{projectController.allProjects}" var="project">
-                <h:column><h:outputText value="#{project.id}"/></h:column>
-                <h:column><h:outputText value="#{project.name}"/></h:column>
-                <h:column><h:outputText value="#{project.budget}"/></h:column>
-                <h:column>
-                    <ul>
-                        <ui:repeat value="#{project.employees}" var="emp">
-                            <li><h:outputText value="#{emp.name}"/></li>
-                        </ui:repeat>
-                    </ul>
-                </h:column>
-                <h:column>
-                    <h:commandButton value="Delete" action="#{projectController.delete(project.id)}" class="btn btn-danger"/>
-                </h:column>
-            </h:dataTable>
+            <ui:repeat value="#{projectController.allProjects}" var="project">
+                <tr>
+                    <td><h:outputText value="#{project.id}"/></td>
+                    <td><h:outputText value="#{project.name}"/></td>
+                    <td><h:outputText value="#{project.budget}"/></td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <ui:repeat value="#{project.employees}" var="emp">
+                                <li><h:outputText value="#{emp.name}"/></li>
+                            </ui:repeat>
+                        </ul>
+                    </td>
+                    <td>
+                        <h:form>
+                            <h:commandButton value="Delete" action="#{projectController.delete(project.id)}" class="btn btn-danger"/>
+                        </h:form>
+                    </td>
+                </tr>
+            </ui:repeat>
             </tbody>
         </table>
     </div>

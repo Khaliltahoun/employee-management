@@ -7,66 +7,59 @@ import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Named
-@SessionScoped
+@SessionScoped // Use @ViewScoped if a shorter lifecycle is desired.
 public class ProjectController implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Inject
     private ProjectService projectService;
-    private Project newProject = new Project();
-    private List<Project> allProjects = new ArrayList<>();
 
-    private Project project = new Project();
-    private Project selectedProject; // Ajout de la propriété selectedProject
-
-
+    private Project newProject;
+    private Project selectedProject;
 
     @PostConstruct
     public void init() {
         newProject = new Project();
     }
 
+    /**
+     * Adds a project and resets the newProject.
+     * @return redirection URL
+     */
     public String addProject() {
         if (newProject != null) {
-            projectService.save(newProject); // Sauvegarde dans la base de données
+            projectService.save(newProject);
             System.out.println("Projet ajouté : " + newProject);
+            newProject = new Project(); // Reset after saving
         }
         return "project-list.xhtml?faces-redirect=true";
     }
 
+    /**
+     * Returns the list of all projects.
+     */
+    public List<Project> getAllProjects() {
+        return projectService.findAll();
+    }
+
+    /**
+     * Deletes a project by ID.
+     */
+    public void delete(Long id) {
+        projectService.delete(id);
+    }
+
+    // Getters and Setters
     public Project getNewProject() {
         return newProject;
     }
 
     public void setNewProject(Project newProject) {
         this.newProject = newProject;
-    }
-
-    public void save() {
-        projectService.save(project);
-        project = new Project(); // Réinitialisation après sauvegarde
-    }
-
-    public List<Project> getAllProjects() {
-        return projectService.findAll();
-    }
-
-    public void delete(Long id) {
-        projectService.delete(id);
-    }
-
-    // Getters et Setters
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public Project getSelectedProject() {

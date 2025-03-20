@@ -1,10 +1,12 @@
 package com.example.model;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,9 +17,15 @@ public class Employee {
     @ElementCollection
     private List<String> skills;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id") // Explicitly naming the foreign key column
-    private Project project;
+    // Replace the single project field with a list of projects
+    // ManyToMany relationship
+    @ManyToMany
+    @JoinTable(
+            name = "employee_project",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
+    private List<Project> projects = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Post post;
@@ -25,11 +33,10 @@ public class Employee {
     // Constructors
     public Employee() {}
 
-    public Employee(String name, String email, List<String> skills, Project project, Post post) {
+    public Employee(String name, String email, List<String> skills, Post post) {
         this.name = name;
         this.email = email;
         this.skills = skills;
-        this.project = project;
         this.post = post;
     }
 
@@ -46,9 +53,29 @@ public class Employee {
     public List<String> getSkills() { return skills; }
     public void setSkills(List<String> skills) { this.skills = skills; }
 
-    public Project getProject() { return project; }
-    public void setProject(Project project) { this.project = project; }
+    public List<Project> getProjects() { return projects; }
+    public void setProjects(List<Project> projects) { this.projects = projects; }
 
     public Post getPost() { return post; }
     public void setPost(Post post) { this.post = post; }
+
+    // Helper method to add a project to an employee
+    public void addProject(Project project) {
+        projects.add(project);
+        project.getEmployees().add(this);
+    }
+
+    // equals() and hashCode() based on ID
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee other = (Employee) obj;
+        return id != null && id.equals(other.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }
